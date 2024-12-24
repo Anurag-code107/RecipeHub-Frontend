@@ -1,0 +1,56 @@
+<mat-dialog-content
+  class="recipe-detail-content"
+  [ngClass]="{
+    'veg-recipe': data.recipe.category === 'Vegetarian',
+    'non-veg-recipe': data.recipe.category === 'Non-Vegetarian'
+  }"
+>
+  <!-- Recipe Title -->
+  <div class="header">
+    <h2>{{ data.recipe.title }}</h2>
+    <p [ngClass]="{'veg-category': data.recipe.category === 'Vegetarian', 'non-veg-category': data.recipe.category === 'Non-Vegetarian'}"> {{ data.recipe.category }}</p>
+  </div>
+
+  <!-- Recipe Image -->
+  <div class="image-container">
+    <img
+      class="recipe-image"
+      [ngClass]="{
+        'veg-border': data.recipe.category === 'Vegetarian',
+        'non-veg-border': data.recipe.category === 'Non-Vegetarian'
+      }"
+      [src]="data.recipe.image"
+      alt="Recipe Image"
+    />
+  </div>
+
+  <!-- Author -->
+  <div class="details">
+    <h4>By {{ data.recipe.user.fullName }}</h4>
+  </div>
+
+  <!-- Recipe Description -->
+  <div class="recipe-description">
+    <h4>Description:</h4>
+    <p>{{ data.recipe.description }}</p>
+  </div>
+
+  <!-- Ingredients List -->
+  <div class="recipe-ingredients">
+    <h4>Ingredients:</h4>
+    <ul>
+      <li *ngFor="let ingredient of data.recipe.ingredients">
+        {{ ingredient }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Instructions -->
+  <div class="recipe-instructions">
+    <h4>Instructions</h4>
+    <p>{{ data.recipe.instructions }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="close-button" mat-dialog-close>Close</button>
+</mat-dialog-actions>

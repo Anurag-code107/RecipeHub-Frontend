@@ -1,0 +1,84 @@
+<div class="recipe-grid">
+  <mat-card
+    class="example-card"
+     [ngClass]="{ 'veg-recipe': recipe.category === 'Vegetarian', 'non-veg-recipe': recipe.category === 'Non-Vegetarian' }"
+     (mouseenter)="onHover(recipe)"
+     (mouseleave)="onHoverLeave(recipe)"
+    appearance="outlined"
+    (click)="openRecipeDetailDialog(recipe)"
+  >
+    <mat-card-header>
+      <!-- User Avatar -->
+      <div mat-card-avatar class="user-avatar" [style.background-color]="getAvatarColor(recipe.user.fullName)">
+        {{ recipe.user.fullName.charAt(0) | uppercase }}
+      </div>
+      <mat-card-title>{{ recipe.title }}</mat-card-title>
+      <mat-card-subtitle>{{ recipe.user.fullName }}</mat-card-subtitle>
+    </mat-card-header>
+    
+<!-- Recipe Image -->
+<div class="image-wrapper">
+  <img
+    class="recipe-image"
+    mat-card-image
+    [src]="recipe.image"
+    alt="{{ recipe.title }}"
+  />
+</div>
+
+
+    <!-- Recipe Description -->
+    <mat-card-content>
+      <p class="recipe-description">
+        {{ recipe.description | slice: 0:90 }}<span *ngIf="recipe.description.length > 90">...</span>
+      </p>
+      <!-- Read More Button -->
+       <button *ngIf="recipe.description.length > 10" class="read-more-button" (click)="openRecipeDetailDialog(recipe); $event.stopPropagation()">
+          Read More
+       </button>
+    </mat-card-content>
+
+    <!-- Card Actions -->
+    <mat-card-actions class="flex justify-between recipe-actions">
+      <div>
+        <div class="like-container">
+          <button
+            (click)="toggleLike(recipe); $event.stopPropagation()"
+            mat-icon-button
+            aria-label="Toggle like"
+            [ngClass]="
+              recipe.likes.includes(userId) ? 'liked-button' : 'unliked-button'
+            "
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <span class="like-count">{{ recipe.likes.length }}</span>
+          <button
+            *ngIf="recipe.user.id === userId"
+            (click)="handleOpenEditRecipeForm(); $event.stopPropagation()"
+            mat-icon-button
+            aria-label="Edit recipe"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            aria-label="Share recipe"
+          >
+            <mat-icon>share</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div>
+        <button
+          *ngIf="recipe.user.id === userId"
+          (click)="handleDeleteRecipe(); $event.stopPropagation()"
+          mat-icon-button
+          aria-label="Delete recipe"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

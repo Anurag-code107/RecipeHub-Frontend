@@ -1,0 +1,105 @@
+<div class="page-container">
+  <div class="background-image">
+    <img
+      src="https://images.pexels.com/photos/27917033/pexels-photo-27917033/free-photo-of-a-baker-in-the-kitchen.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      alt="Background"
+    />
+    <div *ngIf="!showForm" class="animated-text">
+      <span class="word">Let's </span>
+      <span class="word">get </span>
+      <span class="word">connected</span>
+    </div>
+    <div class="connect-button" *ngIf="!showForm">
+      <button
+        class="animated-button"
+        color="primary"
+        (click)="showRegistrationForm()"
+      >
+        Signup Now!
+      </button>
+    </div>
+  </div>
+
+  <div class="auth-form-container" *ngIf="showForm">
+    <div class="form-content">
+      <h1 class="form-title">{{ isRegister ? "Sign Up" : "Sign In" }}</h1>
+      <form
+        [formGroup]="currentForm"
+        (ngSubmit)="isRegister ? handleRegister() : handleLogin()"
+      >
+        <!-- Full Name Field for Signup -->
+        <div *ngIf="isRegister" class="form-group">
+          <mat-form-field class="w-full">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              placeholder="Full Name"
+              formControlName="fullName"
+            />
+            <mat-error
+              *ngIf="currentForm.get('fullName')?.hasError('required')"
+            >
+              Full Name is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-error *ngIf="currentForm.get('email')?.hasError('required')">
+              Email is required.
+            </mat-error>
+            <mat-error *ngIf="currentForm.get('email')?.hasError('email')">
+              Enter a valid email address.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <mat-form-field class="w-full">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Password"
+              formControlName="password"
+              type="password"
+            />
+            <mat-error
+              *ngIf="currentForm.get('password')?.hasError('required')"
+            >
+              Password is required.
+            </mat-error>
+            <mat-error
+              *ngIf="currentForm.get('password')?.hasError('minlength')"
+            >
+              Password must be at least 6 characters long.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <button
+          class="submit-button"
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="currentForm.invalid"
+        >
+          {{ isRegister ? "Register" : "Login" }}
+        </button>
+      </form>
+      <div class="toggle-text">
+        {{ isRegister ? "Already have an account?" : "Don't have an account?" }}
+        <button mat-button color="primary" (click)="toggleForm()">
+          {{ isRegister ? "Sign In" : "Sign Up" }}
+        </button>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

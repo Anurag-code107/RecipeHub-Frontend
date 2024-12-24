@@ -1,0 +1,143 @@
+.recipe-detail-content {
+  max-width: 600px; /* Consistent width for dialogs */
+  max-height: 90vh; /* Prevent dialog from exceeding viewport */
+  overflow-y: auto; /* Scroll if content overflows */
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .header {
+    text-align: center;
+
+    h2 {
+      font-size: 2rem;
+      margin: 0;
+      color: #ff4081;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .veg-category {
+    color: #388E3C; /* Green for Vegetarian */
+    font-weight: bold;
+  }
+  
+  .non-veg-category {
+    color: #D32F2F; /* Red for Non-Vegetarian */
+    font-weight: bold;
+  }
+  
+
+ .image-container {
+  width: 100%; // Full width of the dialog
+  max-height: 300px; // Set a fixed height for consistent image display
+  display: flex;
+  justify-content: center;
+  align-items: center; // Center the image vertically
+  // overflow: hidden; // Prevent overflow if the image exceeds bounds
+
+  img.recipe-image {
+    width: 100%; // Maintain the original aspect ratio
+    height: 100%; // Fill the container's height
+    object-fit: cover; // Crop image to fit without distortion
+    border-radius: 10px;
+    border: 2px solid #ec407a; // Pink border
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  }
+
+  img.veg-border {
+    border: 2px solid #388E3C; /* Green for Vegetarian */
+  }
+  
+  img.non-veg-border {
+    border: 2px solid #D32F2F; /* Red for Non-Vegetarian */
+  }
+
+}
+
+
+
+  .details {
+    text-align: center;
+
+    h4 {
+      font-size: 1.3rem;
+      color: #ff80ab;
+      font-weight: 500;
+    }
+  }
+
+  .recipe-description,
+  .recipe-ingredients,
+  .recipe-instructions {
+    width: 100%;
+    margin: 16px 0;
+
+    h4 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #f06292;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+
+      li {
+        font-size: 1rem;
+        color:#bdbdbd;
+        margin-bottom: 8px;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      color: #bdbdbd;
+      line-height: 1.6;
+      word-wrap: break-word; /* Prevent text overflow */
+    }
+  }
+}
+
+.mat-dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Remove default padding */
+  background-color: transparent;
+}
+
+mat-dialog-actions {
+  padding-top: 16px;
+
+  button {
+    margin-left: auto;
+    font-weight: bold;
+    color: white;
+    background-color: #d81b60;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+
+    &:hover {
+      background-color: #c2185b; /* Darker shade on hover */
+      transform: scale(1.02); /* Slight enlargement */
+      cursor: pointer;
+    }
+  }
+}
+
+.recipe-instructions, .recipe-description  {
+  white-space: pre-line; /* Preserves newlines and wraps text */
+  word-wrap: break-word;  /* Wraps long words if necessary */
+  margin-top: 10px;
+}
+
+

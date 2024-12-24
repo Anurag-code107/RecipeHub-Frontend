@@ -1,0 +1,35 @@
+<mat-toolbar class="custom-toolbar">
+  <!-- Hamburger Menu (Mobile View) -->
+  <button mat-icon-button class="hamburger" (click)="toggleMenu()" *ngIf="isMobile">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Main Title (Recipe Hub) -->
+  <div class="logo">RECIPE HUB</div>
+
+  <!-- Navigation Links (Web View) -->
+  <div class="nav-links" *ngIf="!isMobile">
+    <a mat-button routerLink="/home">Home</a>
+    <a mat-button routerLink="/about">About</a>
+    <a mat-button routerLink="/contact">Contact</a>
+    <button mat-button class="user-button" *ngIf="user" (click)="handleLogOut()">{{user.fullName}}</button>
+  </div>
+
+  <!-- Mobile Slider Menu -->
+  <div class="menu-overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+  <div class="menu-slider" [ngClass]="{ 'menu-open': isMenuOpen }">
+    <!-- Slider Header with Hamburger and Title -->
+    <div class="slider-header">
+      <button mat-icon-button class="slider-hamburger" (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="slider-title">RECIPE HUB</div>
+    </div>
+
+    <!-- Menu Items -->
+    <a mat-button routerLink="/home" (click)="closeMenu()">Home</a>
+    <a mat-button routerLink="/about" (click)="closeMenu()">About</a>
+    <a mat-button routerLink="/contact" (click)="closeMenu()">Contact</a>
+    <button mat-button class="user-button"  *ngIf="user" (click)="handleLogOut()">Logout</button>
+  </div>
+</mat-toolbar>

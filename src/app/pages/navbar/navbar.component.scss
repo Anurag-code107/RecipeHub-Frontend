@@ -1,0 +1,136 @@
+.custom-toolbar {
+  position: sticky; /* Fixes the navbar at the top */
+  top: 0;
+  width: 100%;     /* Ensures it spans the full width of the page */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 64px;
+  background-color: #d81b60; /* Theme color */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better visibility */
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  // align-items: start ;
+  text-align: start !important;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-links a, .nav-links button {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.user-button{
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight:550;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+.nav-links a:hover, .nav-links button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Slider Menu for Mobile */
+.menu-slider {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Hidden by default */
+  width: 250px;
+  height: 100%;
+  background-color: #d81b60;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* Higher than other components */
+  transition: left 0.3s ease-in-out;
+}
+
+.menu-slider.menu-open {
+  left: 0; /* Slide in from the left */
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 999; /* Behind the slider */
+}
+
+/* Slider Header */
+.slider-header {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Space between hamburger and title */
+  margin-bottom: 16px; /* Space below the header */
+}
+
+.slider-hamburger {
+  color: white;
+}
+
+.slider-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  flex-grow: 1;
+}
+
+/* Menu Items */
+.menu-slider a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.menu-slider a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide navigation links on mobile */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .custom-toolbar {
+    padding: 0 8px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    text-align: start;
+    flex: 1;
+  }
+}

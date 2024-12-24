@@ -1,0 +1,181 @@
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Responsive columns */
+  gap: 16px; /* Space between cards */
+  justify-content: center; /* Center align cards */
+}
+
+.example-card {
+  top: 15px;
+  width: 420px; /* Consistent card width */
+  height: 490px; /* Fixed card height */
+  display: flex;
+  flex-direction: column; /* Arrange content vertically */
+  justify-content: space-between; /* Evenly distribute content */
+  overflow: hidden; /* Hide overflow for consistency */
+  border: 1px solid #e0e0e0; /* Optional: border for clarity */
+  background-color: #1e1e2f; 
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.example-card mat-card-image {
+  height: 300px; /* Fixed height for images */
+  object-fit: cover; /* Maintain aspect ratio while cropping */
+  width: 100%; /* Ensure the image fills the width */
+  border-bottom: 1px solid #e0e0e0; /* Optional: Add a separator */
+}
+
+// .veg-recipe {
+//   border: 2px solid #4caf50; /* Green border */
+//   background-color: rgba(76, 175, 80, 0.1); /* Light green background */
+// }
+
+.example-card:hover {
+  transform: scale(1.02); /* Slight enlargement */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Glow effect */
+}
+/* Non-vegetarian recipe styling */
+// .non-veg-recipe {
+//   border: 2px solid #f44336; /* Red border */
+//   background-color: rgba(244, 67, 54, 0.1); /* Light red background */
+// }
+
+.image-wrapper {
+  position: relative; /* Position relative for child element control */
+  width: 100%; /* Take full width of the card */
+  padding-top: 56.25%; /* 16:9 aspect ratio (adjust as needed) */
+  overflow: hidden; /* Hide excess content */
+  border-bottom: 1px solid #e0e0e0; /* Optional: Add a separator */
+}
+
+.recipe-image {
+  position: absolute; /* Position absolutely inside the wrapper */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure image covers full width */
+  height: 100%; /* Ensure image covers full height */
+  object-fit: cover; /* Maintain aspect ratio while cropping */
+  object-position: center; /* Center the image */
+  border-radius: 4px; /* Optional: Add rounded corners */
+}
+
+.example-card mat-card-content {
+  flex-grow: 1; /* Allow content to fill available space */
+  display: flex; /* Use flexbox to distribute content */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Distribute space between elements */
+  padding: 8px; /* Add padding for content spacing */
+  color: white; /* Ensure text is readable */
+  overflow: hidden; /* Prevent text overflow */
+}
+
+.example-card mat-card-actions {
+  display: flex;
+  justify-content: space-between; /* Align action buttons properly */
+  align-items: center; /* Vertically align items */
+  padding: 8px; /* Add padding for alignment */
+}
+
+.like-container {
+  display: flex; /* Align like button and count inline */
+  align-items: center; /* Vertically center items */
+  gap: 4px; /* Space between button and count */
+}
+
+.like-count {
+  font-weight: bold; /* Highlight the like count */
+  color: white; /* Ensure contrast with background */
+  font-size: 14px; /* Consistent font size */
+}
+
+.liked-button {
+  color: red; /* Highlight liked state */
+}
+
+.unliked-button {
+  color: gray; /* Default color for unliked state */
+}
+
+.recipe-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line; /* Preserves newlines and wraps text */
+  word-wrap: break-word; /* Wraps long words if necessary */
+  margin-top: 10px;
+  margin-bottom: 0.5rem; /* Space between text and button */
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.read-more-button {
+  color: #ec407a;
+  font-size: 0.9rem;
+  // color: white;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: underline;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+.read-more-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ec407a;
+}
+
+.read-more-button:hover {
+  // background-color: #c2185b; /* Darker shade on hover */
+  transform: scale(1.02); /* Slight enlargement */
+  cursor: pointer;
+}
+mat-icon {
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+mat-icon:hover {
+  // background-color: #c2185b; /* Darker shade on hover */
+  transform: scale(1.09); /* Slight enlargement */
+  cursor: pointer;
+}
+
+mat-card:focus {
+  outline: red;
+  box-shadow: #ec407a;
+}
+
+@media (max-width: 768px) {
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* Responsive columns */
+    gap: 16px; /* Space between cards */
+    justify-content: center; /* Center align cards */
+  }
+
+  .example-card {
+    top: 15px;
+    width: 340px; /* Consistent card width */
+    height: 420px; /* Fixed card height */
+  }
+}

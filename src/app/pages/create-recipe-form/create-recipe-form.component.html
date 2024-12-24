@@ -1,0 +1,137 @@
+<button 
+    mat-icon-button 
+    class="top-right-close-button" 
+    mat-dialog-close 
+    aria-label="Close"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+<div class="form-container">
+  <h2 class="create-recipe-heading">Create Recipe</h2>
+  <form (ngSubmit)="onSubmit()">
+    <!-- Title Field -->
+    <div class="mb-4">
+      <mat-form-field class="w-full">
+        <mat-label class="text-gray-200">Title</mat-label>
+        <input
+          matInput
+          placeholder="title..."
+          value=""
+          name="title"
+          [(ngModel)]="recipeItem.title"
+          class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline"
+        />
+      </mat-form-field>
+    </div>
+    <!-- Description Field -->
+    <div class="mb-4">
+      <mat-form-field class="w-full">
+        <mat-label class="text-gray-200">Description</mat-label>
+        <textarea
+          matInput
+          placeholder="description..."
+          value=""
+          name="description"
+          [(ngModel)]="recipeItem.description"
+          class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline"
+        >
+        </textarea>
+      </mat-form-field>
+    </div>
+    <!-- Image Field -->
+    <div class="mb-4">
+      <mat-form-field class="w-full">
+        <mat-label class="text-gray-200">Image</mat-label>
+        <input
+          matInput
+          placeholder="image url..."
+          value=""
+          name="image"
+          [(ngModel)]="recipeItem.image"
+          class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline"
+        />
+      </mat-form-field>
+    </div>
+
+    <!-- Category Field -->
+    <div class="food-type-container mb-4">
+      <label class="block mb-2">Food Type</label>
+      <mat-radio-group
+        [(ngModel)]="recipeItem.category"
+        name="category"
+        required
+      >
+        <mat-radio-button value="Vegetarian">Vegetarian</mat-radio-button>
+        <mat-radio-button value="Non-Vegetarian"
+          >Non-Vegetarian</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+
+    <!-- Ingredients Section -->
+    <div>
+      <div
+        *ngFor="
+          let ingredient of recipeItem.ingredients;
+          let i = index;
+          trackBy: trackByIndex
+        "
+        class="input-row"
+      >
+        <mat-form-field class="input-field">
+          <mat-label>Ingredient</mat-label>
+          <input
+            matInput
+            placeholder="Add ingredient..."
+            [(ngModel)]="recipeItem.ingredients[i]"
+            name="ingredient-{{ i }}"
+          />
+        </mat-form-field>
+        <button
+          mat-icon-button
+          type="button"
+          color="warn"
+          (click)="removeIngredient(i)"
+          aria-label="Remove ingredient"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="add-ingredient-container">
+        <button
+          mat-fab
+          extended
+          type="button"
+          color="primary"
+          class="add-ingredient-button"
+          (click)="addIngredient()"
+        >
+          <mat-icon>add</mat-icon>
+          Ingredients
+        </button>
+      </div>
+    </div>
+
+    <!-- Procedure Text Area Section -->
+    <div class="mt-6">
+      <mat-form-field class="w-full recipe-instructions">
+        <mat-label class="text-gray-200">Instructions</mat-label>
+        <textarea
+          matInput
+          placeholder="Enter the procedure......"
+          value=""
+          name="instructions"
+          [(ngModel)]="recipeItem.instructions"
+          rows="5"
+          class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline"
+        >
+        </textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Submit Button -->
+    <button mat-raised-button class="create-recipe-button" type="submit">
+      Create Recipe
+    </button>
+  </form>
+</div>
