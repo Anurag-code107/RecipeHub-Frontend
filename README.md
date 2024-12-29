@@ -24,12 +24,41 @@ For the backend, check out the [Recipe Hub Backend repository](https://github.co
 ## **Features**
 
 - **Recipe Display**: Users can view recipes created by them or other users.
-- **Recipe Creation**: Authenticated users can create, update, and delete recipes.
+- **Recipe Management**: Authenticated users can create, update, and delete recipes.
 - **Like Recipes**: Users can like recipes to show appreciation.
 - **User Authentication**: Users can register, log in, and authenticate using JWT.
 - **Responsive UI**: The application is fully responsive and designed for both desktop and mobile devices.
 
 ---
+
+## **Screenshots of Application**
+
+![image](https://github.com/user-attachments/assets/ffe94656-e940-403a-b5ed-710ff1ad19b0)
+
+
+**Authentication Form :**
+![image](https://github.com/user-attachments/assets/a9bedc3b-864b-4616-8eca-ee9689c40d5c)
+![image](https://github.com/user-attachments/assets/198ad001-2b7a-4342-868d-c73980575e03)
+
+
+**HomePage :**
+![image](https://github.com/user-attachments/assets/2969e3cc-5042-42cb-aa84-609378d0b2af)
+
+![image](https://github.com/user-attachments/assets/67332e9c-6a60-4c59-b315-a6a41d133962)
+
+**Recipe Detailed Dialog :**
+![image](https://github.com/user-attachments/assets/55d1e042-93d7-41ea-be9a-2eeb1fa36ea4)
+
+![image](https://github.com/user-attachments/assets/86356a87-1016-4d24-acc7-c5f55dfd6b68)
+
+**Create Recipe :**
+![image](https://github.com/user-attachments/assets/d50d0d9b-3a7f-4e9c-9779-f99e79c33180)
+
+**Edit Recipe :**
+![image](https://github.com/user-attachments/assets/35349609-9701-42f6-b687-77b69c87eb7f)
+
+---
+
 
 ## **Live Demo**
 
