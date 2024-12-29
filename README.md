@@ -25,6 +25,7 @@ For the backend, check out the [Recipe Hub Backend repository](https://github.co
 
 - **Recipe Display**: Users can view recipes created by them or other users.
 - **Recipe Management**: Authenticated users can create, update, and delete recipes.
+- **Recipe Detail Dialog**: Users can click on a recipe to view detailed information in a modal dialog. This includes the recipe's title, image, description, ingredients, and step-by-step instructions.
 - **Like Recipes**: Users can like recipes to show appreciation.
 - **User Authentication**: Users can register, log in, and authenticate using JWT.
 - **Responsive UI**: The application is fully responsive and designed for both desktop and mobile devices.
@@ -35,11 +36,9 @@ For the backend, check out the [Recipe Hub Backend repository](https://github.co
 
 ![image](https://github.com/user-attachments/assets/ffe94656-e940-403a-b5ed-710ff1ad19b0)
 
-
 **Authentication Form :**
 ![image](https://github.com/user-attachments/assets/a9bedc3b-864b-4616-8eca-ee9689c40d5c)
 ![image](https://github.com/user-attachments/assets/198ad001-2b7a-4342-868d-c73980575e03)
-
 
 **HomePage :**
 ![image](https://github.com/user-attachments/assets/2969e3cc-5042-42cb-aa84-609378d0b2af)
@@ -58,7 +57,6 @@ For the backend, check out the [Recipe Hub Backend repository](https://github.co
 ![image](https://github.com/user-attachments/assets/35349609-9701-42f6-b687-77b69c87eb7f)
 
 ---
-
 
 ## **Live Demo**
 
@@ -148,4 +146,3 @@ This project is licensed under the [**MIT License**](LICENSE).
 If you encounter any issues or have any questions, feel free to open an issue in the [GitHub repository issues page](https://github.com/Anurag-code107/RecipeHub-Frontend/issues) or contact us directly at [anuragnegi2704@gmail.com](mailto:anuragnegi2704@gmail.com).
 
 ---
-
