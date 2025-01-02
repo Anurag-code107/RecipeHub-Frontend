@@ -10,14 +10,13 @@ For the backend, check out the [Recipe Hub Backend repository](https://github.co
 
 ---
 
-## **Technologies Used**
+## **Frontend Technology Stack**
 
 - **Angular 18**: Frontend framework
 - **Tailwind CSS**: Utility-first CSS framework for styling
 - **Angular Material**: UI component library for building responsive layouts and components
 - **JWT Authentication**: To manage secure access to the application
 - **Font Awesome**: For icons in the UI
-- **PrimeNG**: UI component library for Angular
 
 ---
 
